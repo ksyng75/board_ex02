@@ -7,4 +7,9 @@
 	<select id="getList" resultType="com.jafa.dto.Board">
 		select * from board_tbl;
 	</select>
+	
+	<insert id="id">
+	    insert into board_tbl(title, contents, writer)
+	    values(#{title},#{contents},#{writer})
+	</insert>
 </mapper>

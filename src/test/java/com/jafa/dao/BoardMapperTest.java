@@ -2,8 +2,17 @@ package com.jafa.dao;
 
 import static org.junit.Assert.assertEquals;
 
+import java.io.IOException;
+import java.io.Reader;
+import java.sql.SQLException;
 import java.util.List;
 
+import javax.sql.DataSource;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.jdbc.ScriptRunner;
+import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +32,29 @@ public class BoardMapperTest {
 	@Autowired
 	BoardMapper mapper;
 	
+	@Autowired
+	DataSource dataSource;
+	
+	@After
+	public void setUp() throws IOException, SQLException {
+		Reader reader = Resources.getResourceAsReader("sql/sql02.sql");
+		ScriptRunner runner = new ScriptRunner(dataSource.getConnection());
+		runner.runScript(reader);
+	}
+	
 	@Test
 	public void getListTest() {
 		List<Board> list = mapper.getList();
 		assertEquals(4, list.size());
+	}
+	@Test
+	public void insertTest() {
+		Board board = new Board();
+		board.setTitle("test_title");
+		board.setContents("test_contents");
+		board.setWriter("test_writer");
+		mapper.insert(board);
+		List<Board> list = mapper.getList();
+		assertEquals(5, list.size());
 	}
 }
