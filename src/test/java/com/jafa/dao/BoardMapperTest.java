@@ -51,10 +51,20 @@ public class BoardMapperTest {
 	public void insertTest() {
 		Board board = new Board();
 		board.setTitle("test_title");
-		board.setContents("test_contents");
+		board.setContent("test_contents");
 		board.setWriter("test_writer");
 		mapper.insert(board);
+		
+		System.out.println("가장 최신글 번호 : " + board.getBno());
+		
 		List<Board> list = mapper.getList();
 		assertEquals(5, list.size());
 	}
+	public void findByBno() {
+		Board findByBno =  mapper.findByBno(1L);
+		assertEquals("게시물 제목1", findByBno.getTitle());
+		assertEquals("거시기1", findByBno.getWriter());
+		assertEquals("배가 고픔니다", findByBno.getContent());
+	}
+
 }

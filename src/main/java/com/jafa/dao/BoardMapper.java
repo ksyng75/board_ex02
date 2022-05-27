@@ -9,4 +9,10 @@ public interface BoardMapper {
 	List<Board> getList();
 	
 	void insert(Board board);
+	
+	Board findByBno(Long bno);
+	
+	void update(Board board);
+	
+	void delete(Long bno);
 }

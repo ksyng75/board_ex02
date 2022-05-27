@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public class Board {
 	private long bno; // 게시물 번호
 	private String title;
-	private String contents;
+	private String content;
 	private String writer;
 	private LocalDateTime regDate;
 	private LocalDateTime updateDate;
@@ -23,11 +23,11 @@ public class Board {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getContents() {
-		return contents;
+	public String getContent() {
+		return content;
 	}
-	public void setContents(String contents) {
-		this.contents = contents;
+	public void setContent(String contents) {
+		this.content = contents;
 	}
 	public String getWriter() {
 		return writer;
@@ -54,7 +54,7 @@ public class Board {
 			LocalDateTime updateDate) {
 		this.bno = bno;
 		this.title = title;
-		this.contents = contents;
+		this.content = contents;
 		this.writer = writer;
 		this.regDate = regDate;
 		this.updateDate = updateDate;
@@ -62,7 +62,7 @@ public class Board {
 	
 	@Override
 	public String toString() {
-		return "Board [bno=" + bno + ", title=" + title + ", contents=" + contents + ", writer=" + writer + ", regDate="
+		return "Board [bno=" + bno + ", title=" + title + ", content=" + content + ", writer=" + writer + ", regDate="
 				+ regDate + ", updateDate=" + updateDate + "]";
 	}
 }
