@@ -1,17 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<%@ include file="/WEB-INF/views/layout/header.jsp" %>
+<div class="container">
 <form action="${pageContext.request.contextPath}/board/register" method="post">
 글 제목 : <input type="text" name="title"><br>
 작성자 : <input type="text" name="writer"><br>
-<textarea rows="50" cols="100" name="content"></textarea>
+<textarea rows="20" cols="80" name="content"></textarea>
 <button>Register</button>
 </form>
-</body>
-</html>
+</div>
+<%@ include file="/WEB-INF/views/layout/footer.jsp" %>

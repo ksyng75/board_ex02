@@ -1,13 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-글조회<br>
+<%@ include file="/WEB-INF/views/layout/header.jsp" %>
+<div class="container">
+<h2>게시글 조회</h2>
 
 <p>제목 : ${board.title}</p>
 <p>작성자 : ${board.writer}</p>
@@ -17,9 +12,13 @@
    내용 : <br>
    ${board.content}
 </div>
-<form action="${pageContext.request.contextPath}/board/remove" method="post">
+<form action="${contextPath}/board/remove" method="post">
    <input type="hidden" name="bno" value="${board.bno}">
-   <button>delete</button>
+   <button class="btn btn-primary">delete</button>
 </form>
-</body>
-</html>
+<form action="${contextPath}/board/modify">
+   <input type="hidden" name="bno" value="${board.bno}">
+   <button class="btn btn-warning">update</button>
+   </form>
+</div>
+<%@ include file="/WEB-INF/views/layout/footer.jsp" %>
