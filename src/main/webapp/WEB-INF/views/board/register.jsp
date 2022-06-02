@@ -8,5 +8,6 @@
 <textarea rows="20" cols="80" name="content"></textarea>
 <button>Register</button>
 </form>
+<a class="btn btn-primary" href="${contextPath}/board/list">Board &raquo;</a>
 </div>
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>

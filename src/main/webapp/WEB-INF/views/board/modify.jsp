@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/layout/header.jsp" %>
 <div class="container">
-${board}
+
 <h2>글 수정 페이지</h2>
 
 <form action="${pageContext.request.contextPath}/board/update" method="post">

@@ -59,6 +59,21 @@
            <artifactId>jstl</artifactId>
            <version>1.2</version>
         </dependency>
+        <dependency>
+    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+    <version>1.16</version>
+</dependency>
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+<dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.36</version>
+</dependency>
 
 	</dependencies>
 	<build>

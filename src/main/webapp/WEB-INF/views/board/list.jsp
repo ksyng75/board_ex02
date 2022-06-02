@@ -28,9 +28,21 @@
     </tr>
   </c:forEach>
 </table>
+<ul class="pagination">
+<c:if test="${pageMaker.prev}">
+    <li class="page-item"><a class="page-link" href="?page=${pageMaker.startPage-1}">[prevpage]</a></li>
+    </c:if>
+    
+<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
+        <li class="page-item ${param.page == pageNum ? 'active':''}"><a  class="page-link" href="?page=${pageNum}" >[${pageNum}]</a></li>
+</c:forEach>
 
+<c:if test="${pageMaker.next}">
+        <li class="page-item"><a  class="page-link" href="?page=${pageMaker.endPage+1}">[nextpage]</a></li>
+    </c:if>
+</ul>
+    
 <a href="${pageContext.request.contextPath}/board/register" class="btn btn-primary">Register</a>
-<c:if test="${not empty message }">${message}</c:if>
-
+${message}
 </div>
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>

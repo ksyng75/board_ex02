@@ -23,6 +23,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import com.jafa.config.RootConfig;
 import com.jafa.config.ServletConfig;
 import com.jafa.dto.Board;
+import com.jafa.dto.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = {RootConfig.class, ServletConfig.class})
@@ -43,12 +44,12 @@ public class BoardMapperTest {
 	}
 	
 	@Test
-	public void getListTest() {
-		List<Board> list = mapper.getList();
+	public void getListTest(Criteria criteria) {
+		List<Board> list = mapper.getList(criteria);
 		assertEquals(4, list.size());
 	}
 	@Test
-	public void insertTest() {
+	public void insertTest(Criteria criteria) {
 		Board board = new Board();
 		board.setTitle("test_title");
 		board.setContent("test_contents");
@@ -57,7 +58,7 @@ public class BoardMapperTest {
 		
 		System.out.println("가장 최신글 번호 : " + board.getBno());
 		
-		List<Board> list = mapper.getList();
+		List<Board> list = mapper.getList(criteria);
 		assertEquals(5, list.size());
 	}
 	public void findByBno() {

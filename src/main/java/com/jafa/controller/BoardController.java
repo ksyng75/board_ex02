@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.jafa.dto.Board;
+import com.jafa.dto.Criteria;
+import com.jafa.dto.PageMaker;
 import com.jafa.service.BoardService;
 
 @Controller
@@ -22,9 +24,15 @@ public class BoardController {
 	private BoardService service; 
 	
 	@GetMapping("/list")
-	public String getBoardList(Model model) {
-		List<Board> list = service.getList();
+	public String getBoardList(Criteria criteria, Model model) {
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCriteria(criteria);
+		pageMaker.setTotalCount(service.totalCount());
+		
+		List<Board> list = service.getList(criteria);
+		
 		model.addAttribute("list",list );
+		model.addAttribute("pageMaker",pageMaker);
 		return "board/list";
 	}
 	@RequestMapping(value = "get", method = RequestMethod.GET)
