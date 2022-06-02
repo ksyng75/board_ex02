@@ -10,6 +10,7 @@
      <th>등록일</th>
      <th>수정일</th>
   </tr>
+  <c:if test="${not empty list}" var="b">
   <c:forEach items="${list}" var="b">
     <tr>
        <td>${b.bno}</td>
@@ -27,10 +28,16 @@
        </td>
     </tr>
   </c:forEach>
+  </c:if>
+  <c:if test="${empty list}" var="b">
+     <tr>
+        <td colspan="5">Not Page</td>
+     </tr>
+  </c:if>
 </table>
 <ul class="pagination">
 <c:if test="${pageMaker.prev}">
-    <li class="page-item"><a class="page-link" href="?page=${pageMaker.startPage-1}">[prevpage]</a></li>
+    <li class="page-item"><a class="page-link" href="?page=${pageMaker.startPage-1}">previous</a></li>
     </c:if>
     
 <c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="pageNum">
@@ -38,7 +45,7 @@
 </c:forEach>
 
 <c:if test="${pageMaker.next}">
-        <li class="page-item"><a  class="page-link" href="?page=${pageMaker.endPage+1}">[nextpage]</a></li>
+        <li class="page-item"><a  class="page-link" href="?page=${pageMaker.endPage+1}">next</a></li>
     </c:if>
 </ul>
     
