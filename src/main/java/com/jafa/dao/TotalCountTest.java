@@ -18,8 +18,8 @@ public class TotalCountTest {
 	@Autowired
 	BoardMapper mapper;
 	
-	@Test
-	public void totalCouctTest() {
-		assertEquals(412, mapper.totalCount());
-	}
+//	@Test
+//	public void totalCouctTest() {
+//		assertEquals(412, mapper.totalCount());
+//	}
 }

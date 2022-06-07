@@ -19,11 +19,11 @@ public class PagingTest {
 	@Test
 	public void insertTest() {
 		
-		for(int i=1; i <=412 ; i++) {
+		for(int i=1; i <= 412 ; i++) {
 		Board board = new Board();
-		board.setTitle("test_title" +i);
-		board.setContent("test_contents"+i);
-		board.setWriter("test_writer"+i);
+		board.setTitle("제목 : test" +i);
+		board.setContent("내용 : test"+i);
+		board.setWriter("test"+i);
 		mapper.insert(board);
 		}
 	}
