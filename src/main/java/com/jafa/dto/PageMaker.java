@@ -27,10 +27,10 @@ public class PageMaker {
 		if(endPage > tempEndPage) {
 			endPage = tempEndPage;
 		}
-//		prev = startPage == 1 ? false:true;
+		//		prev = startPage == 1 ? false:true;
 		prev = startPage != 1 ;
-//		next = endPage >= tempEndPage ? false:true;
+		//		next = endPage >= tempEndPage ? false:true;
 		next = endPage < tempEndPage;
-			
+
 	}
 }

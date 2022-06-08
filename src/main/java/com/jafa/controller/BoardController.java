@@ -23,6 +23,7 @@ public class BoardController {
 	@Autowired
 	private BoardService service; 
 	
+	// 
 	@GetMapping("/list")
 	public String getBoardList(Criteria criteria, Model model) {
 		PageMaker pageMaker = new PageMaker();
@@ -61,7 +62,6 @@ public class BoardController {
 	public String modify(Long bno, Model model) {
 		model.addAttribute("board", service.get(bno));
 		return "board/modify";
-		
 	}
 	@PostMapping("/update")
 	public String update(Board board) {
